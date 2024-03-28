@@ -1,0 +1,25 @@
+class MyStack {
+public:
+    stack<int> q;
+    MyStack() {
+        
+    }
+    
+    void push(int x) {
+        q.push(x);
+    }
+    
+    int pop() {
+        int a=q.top();
+        q.pop();
+        return a;
+    }
+    
+    int top() {
+        return q.top();
+    }
+    
+    bool empty() {
+        return q.empty();
+    }
+};

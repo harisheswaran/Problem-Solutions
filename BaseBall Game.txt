@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int calPoints(vector<string>& v) {
+        stack<int> st;
+        for(string i:v){
+            if(i=="C"){
+                if(!st.empty()){
+                    st.pop();
+                }
+            }
+            else if(i=="D"){
+                int t=st.top();
+                st.push(t*2);
+            }
+            else if(i=="+"){
+                int t=st.top();
+                st.pop();
+                int l=st.top();
+                st.pop();
+                st.push(l);
+                st.push(t);
+                st.push(t+l);
+            }
+            else{
+                st.push(stoi(i));
+            }
+        }
+        int sum=0;
+        while(!st.empty()){
+            cout<<st.top()<<" ";
+            sum+=st.top();
+            st.pop();
+        }
+        return sum;
+    }
+};
